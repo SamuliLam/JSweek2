@@ -1,0 +1,65 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a {
+    color: brown;
+    text-decoration: none;
+    font-size: 2vw;
+}
+
+img {
+    width: 30%;
+    height: 20%;
+    border: 15px solid;
+    border-radius: 10px;
+    border-color: blue;
+    border-style: bold;
+
+}
+
+td {
+    background-color: blueviolet;
+}
+
+a:hover {
+    background-color: red;
+}
+
+header {
+    background-color: red;
+color: rgb(205, 215, 255);
+font-size: 6vw;
+text-align: center;
+}
+
+p {
+    font-size: 3vw;
+}
+
+#root-container {
+    border: 15px solid;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#image-container {
+background-color: aqua;
+border: 15px solid;
+border-radius: 10px;
+}
+#table-container {
+    border: 15px solid;
+
+    
+}
+
+
+#list-container {
+    border: 15px solid;
+    
+}

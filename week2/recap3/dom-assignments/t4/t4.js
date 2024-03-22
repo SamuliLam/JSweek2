@@ -770,4 +770,35 @@ const restaurants = [
   },
 ];
 
-// your code here
+navigator.geolocation.getCurrentPosition(position => {
+  let currentLocation = [position.coords.longitude, position.coords.latitude];
+
+  function calculateDistance(coord1, coord2) {
+    let xDiff = coord2[0] - coord1[0];
+    let yDiff = coord2[1] - coord1[1];
+    return Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+  }
+
+  restaurants.forEach(restaurant => {
+    restaurant.distance = calculateDistance(currentLocation, restaurant.location.coordinates);
+  });
+
+  restaurants.sort((a, b) => a.distance - b.distance);
+
+  let table = document.querySelector('table');
+
+  let tbody = document.createElement('tbody');
+
+  restaurants.forEach(restaurant => {
+    let row = document.createElement('tr');
+    let nameCell = document.createElement('td');
+    nameCell.innerText = restaurant.name;
+    let addressCell = document.createElement('td');
+    addressCell.innerText = restaurant.address;
+    row.appendChild(nameCell);
+    row.appendChild(addressCell);
+    tbody.appendChild(row);
+  });
+
+  table.appendChild(tbody);
+});

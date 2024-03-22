@@ -12,16 +12,17 @@ do {
 
 const p = document.createElement("p");
 document.body.appendChild(p);
+const pText = "Even numbers: ";
 
 if (numbers.length > 0) {
+  p.innerText = pText;
   for (const number of numbers) {
     if (number % 2 === 0) {
-      p.innerHTML += number + ",&nbsp;";
+      p.innerText += number +",";
     }
   }
 }
 
-const p2 = document.createElement("p");
-document.body.appendChild(p2);
-
-p2.innerText = "Even Numbers: " + p.innerHTML;
+if (p.innerText.trim() === pText.trim()) {
+  p.innerText += "none";
+}

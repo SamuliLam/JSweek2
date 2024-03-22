@@ -771,3 +771,24 @@ const restaurants = [
 ];
 
 // your code here
+const coordinates = [60.192059, 24.945831];
+
+
+let map = L.map('map').setView(coordinates, 13);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap contributors',
+}).addTo(map);
+
+let restaurantName = document.createElement('h3');
+let address = document.createElement('p');
+
+document.body.append(restaurantName, address);
+
+restaurants.forEach(restaurant => {
+  //aijai, ravintoloiden koordinaatit oli väärin päin, joten käännetään ne
+  marker = L.marker(restaurant.location.coordinates.reverse()).addTo(map);
+  marker.on('click', () => {
+    restaurantName.innerText = restaurant.name;
+    address.innerText = restaurant.address;
+  });
+});
